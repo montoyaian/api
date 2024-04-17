@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "webappmontoyita41.azurewebsites.net"
 };
 
 app.use(cors(corsOptions));
