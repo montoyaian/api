@@ -1,4 +1,4 @@
-# Usa la imagen oficial de Node.js como base
+# Usa la imagen oficial de Node.js como
 FROM node:14
 
 # Establece el directorio de trabajo dentro del contenedor
