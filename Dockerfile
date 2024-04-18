@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 RUN npm install
 
 # Copia el resto de los archivos de la aplicación
-COPY . .
+COPY . ./
 
 # Expone el puerto 3000 en el contenedor
 EXPOSE 3000
