@@ -161,8 +161,7 @@ resource "null_resource" "run_ansible" {
   depends_on = [azurerm_linux_virtual_machine.utb_vm]
 
   provisioner "local-exec" {
-    command = "sleep 30 && ansible-playbook -i '${local_file.ansible_inventory.filename}' --private-key '${local_sensitive_file.private_key.filename}' --extra-vars "ansible_ssh_common_args='-o StrictHostKeyChecking=no'" ansi.yaml
-"
+    command = "sleep 30 && ansible-playbook -i '${local_file.ansible_inventory.filename}' --private-key '${local_sensitive_file.private_key.filename}' --extra-vars 'ansible_ssh_common_args=-o StrictHostKeyChecking=no' ansi.yaml"
   }
 
 
