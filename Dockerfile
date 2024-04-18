@@ -1,10 +1,11 @@
-# Usa la imagen oficial de Node.js como
+# Usa la imagen oficial de Node.js como base
 FROM node:14
-
-COPY package*.json ./
 
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /usr/src/app
+
+# Copia los archivos package.json y package-lock.json para instalar las dependencias
+COPY package*.json ./
 
 # Instala las dependencias de la aplicación
 RUN npm install
