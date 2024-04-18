@@ -13,8 +13,8 @@ RUN npm install
 # Copia el resto de los archivos de la aplicación
 COPY . ./
 
-# Expone el puerto 3000 en el contenedor
-EXPOSE 3000
+# Expone el puerto 8080 en el contenedor
+EXPOSE 8080
 
 # Comando para ejecutar la aplicación cuando se inicie el contenedor
 CMD ["node", "server.js"]
