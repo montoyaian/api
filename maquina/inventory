@@ -1,0 +1,6 @@
+[aws_ec2]
+40.121.219.232
+
+[aws_ec2:vars]
+ansible_ssh_user=azureuser
+ansible_ssh_private_key_file=/home/vboxuser/Documentos/Parcial2P/Parcial2/priv_key.ssh
