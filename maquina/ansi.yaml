@@ -5,9 +5,6 @@
     mysql_user: ian
     mysql_password: ian123
     db_name: parcial2
-  module_defaults:
-    mysql:
-      login_unix_socket: /var/run/mysqld/mysqld.sock
   become: true
   become_user: root
   tasks:
