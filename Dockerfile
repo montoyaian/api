@@ -1,6 +1,8 @@
 # Usa la imagen oficial de Node.js como
 FROM node:14
 
+COPY package*.json ./
+
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /usr/src/app
 
@@ -14,4 +16,4 @@ COPY . .
 EXPOSE 3000
 
 # Comando para ejecutar la aplicación cuando se inicie el contenedor
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
