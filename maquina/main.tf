@@ -111,8 +111,8 @@ resource "tls_private_key" "ssh_key" {
 
 
 resource "local_sensitive_file" "private_key" {
-  content = tls_private_key.ssh_key.private_key_openssh
-  filename          = "priv_key.ssh"
+  content           = tls_private_key.ssh_key.private_key_openssh
+  filename          = "${path.module}/priv_key.ssh"
   file_permission   = "0600"
 }
   
@@ -120,11 +120,11 @@ resource "local_file" "ansible_inventory" {
   depends_on = [azurerm_linux_virtual_machine.utb_vm]
   content  =templatefile("inventory.tftpl", {
     ip_addrs = [azurerm_public_ip.public_ip.ip_address]
-    ssh_keyfile = format("%s/%s", abspath(path.root), "priv_key.ssh")
-
+    ssh_keyfile = "${local_sensitive_file.private_key.filename}"
   })
-  filename = "inventory"
+  filename = "${path.module}/inventory"
 }
+
 
 resource "azurerm_linux_virtual_machine" "utb_vm" {
   name                  = "utb_vm"
