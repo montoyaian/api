@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "webappmontoyita41.azurewebsites.net"
+  origin: "example-app-service-montoyita41.azurewebsites.net"
 };
 
 app.use(cors(corsOptions));
