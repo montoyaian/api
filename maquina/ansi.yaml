@@ -52,4 +52,18 @@
         login_user: "{{ mysql_user }}"
         login_password: "{{ mysql_password }}"
 
+    - name: Copiar datos de muestra a la máquina remota
+      copy:
+        src: ./dump.sql
+        dest: /tmp/dump.sql
+
+    - name: Insertar datos de muestra en la base de datos
+      community.mysql.mysql_db:
+        name: parcial
+        state: import
+        target: /tmp/dump.sql
+        login_unix_socket: /run/mysqld/mysqld.sock
+        login_user: "{{ mysql_user }}"
+        login_password: "{{ mysql_password }}"
+
 
