@@ -57,7 +57,7 @@
         src: ./dump.sql
         dest: /tmp/dump.sql
 
-    - name: Insertar datos de muestra en la base de datos
+    - name: tabla en la base de datos
       community.mysql.mysql_db:
         name: parcial
         state: import
