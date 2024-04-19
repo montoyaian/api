@@ -65,5 +65,16 @@
         login_unix_socket: /run/mysqld/mysqld.sock
         login_user: "{{ mysql_user }}"
         login_password: "{{ mysql_password }}"
+        
+    - name: Conexion remota
+      lineinfile:
+        path: /etc/mysql/mysql.conf.d/mysqld.cnf
+        regexp: '^bind-address'
+        line: 'bind-address = 0.0.0.0'
 
+
+    - name: Reiniciar servicio MySQL
+      service:
+        name: mysql
+        state: restarted
 
